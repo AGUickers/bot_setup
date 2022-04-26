@@ -5,17 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        Telegram.WebApp.ready(function() {
-            Telegram.WebApp.MainButton.setParams({
-                is_visible: true,
-                text: "Get Started"
-            }).onClick(this.mainBtnClicked);
-        });
-
-        mainBtnClicked = function() {
-            Telegram.WebApp.sendData("/setwebsite");
-            console.log(Telegram.WebApp.sendData("/setwebsite"));
-        }
+        var mainbtn = Telegram.WebApp.MainButton;
+        mainbtn.show();
     </script>
 </head>
 <body>
