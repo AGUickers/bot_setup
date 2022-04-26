@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/tg-functions.js"></script>
 </head>
 <body>
     <style>
@@ -25,9 +25,20 @@
             font-size: x-large;
             text-align: center;
         }
+        button {
+            align-self: center;
+            font-family: 'Segoe UI';
+            font-size: large;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-color: blueviolet;
+            color: white;
+        }
     </style>
     <img src="images/logo.png" alt="logo" class="logo">
     <h1>Welcome!</h1>
     <p>If you see this page, that means the server is installed correctly!</p>
     <p>You can edit this page at any time by typing /setwebsite.</p>
+    <button id="start" onclick='window.Telegram.WebApp.sendData("/setwebsite");'>Get started</button>
 </body>
