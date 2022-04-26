@@ -1,4 +1,5 @@
 Telegram.WebApp.MainButton.setParams({
+    is_visible: true,
     text: "Get Started"
 }).onClick(this.mainBtnClicked);
 
