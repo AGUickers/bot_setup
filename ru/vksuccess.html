@@ -25,34 +25,21 @@
             font-size: x-large;
             text-align: center;
         }
-        button {
+        input {
             align-self: center;
             font-family: 'Segoe UI';
             font-size: large;
             text-align: center;
             width: 100%;
             height: auto;
-            background-color: blueviolet;
-            color: white;
         }
     </style>
     <img src="images/logo.png" alt="logo" class="logo">
-    <h1>VK Authorization</h1>
-    <p>To authorize your VK profile, click the button below.</p>
-    <button id="auth">Authorize</button>
+    <h1>Successfully authorized!</h1>
+    <p>Copy this token and send it to the bot.</p>
+    <input type="text" id="token">
     <script>
-        VK.init({
-            apiId: 8165862
-        });
-        $('#auth').click(function() {
-            VK.Auth.login(function(response) {
-                if (response.session) {
-                    //User authorized successfully, redirect them to the success page
-                    window.location.href = 'vksuccess.html?token=' + response.session.access_token;
-                } else {
-                    window.location.href = 'vkfail.html';
-                }
-            });
-        });
+        var token = window.location.href.split('=')[1];
+        $('#token').val(token);
     </script>
 </body>
