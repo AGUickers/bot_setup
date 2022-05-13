@@ -39,7 +39,7 @@
     <p>Copy this token and send it to the bot.</p>
     <input type="text" id="token">
     <script>
-        var token = window.location.href.split('=')[1];
+        var token = window.location.href.split('=')[1].split('&')[0];
         $('#token').val(token);
     </script>
 </body>
