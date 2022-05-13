@@ -38,8 +38,14 @@
     <h1>Successfully authorized!</h1>
     <p>Copy this token and send it to the bot.</p>
     <input type="text" id="token">
+    <button id="copy">Copy</button>
     <script>
-        var token = window.location.href.split('=')[1].split('&')[0];
+        var hash = window.location.hash.split('=')[1];
+        var token = hash.split('&')[0];
         $('#token').val(token);
+        $('#copy').click(function() {
+            $('#token').select();
+            document.execCommand('copy');
+        });
     </script>
 </body>
