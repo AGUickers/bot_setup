@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
+</head>
+<body>
+    <style>
+        img {
+            /* Width must be set to the viewport width */
+            width: 100%;
+            height: 50%;
+        }
+        p {
+            width: auto;
+            height: auto;
+            font-size: medium;
+            font-family: 'Segoe UI';
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Segoe UI';
+            font-size: x-large;
+            text-align: center;
+        }
+        button {
+            align-self: center;
+            font-family: 'Segoe UI';
+            font-size: large;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+    <img src="images/logo.png" alt="logo" class="logo">
+    <h1>VK Authorization</h1>
+    <p>To authorize your VK profile, click the button below.</p>
+    <button id="auth">Authorize</button>
+    <script>
+        VK.init({
+            apiId: 8165862
+        });
+        $('#auth').click(function() {
+            VK.Auth.login(function(response) {
+                if (response.session) {
+                    alert('Authorized');
+                } else {
+                    alert('Authorization failed');
+                }
+            });
+        });
+    </script>
+</body>
