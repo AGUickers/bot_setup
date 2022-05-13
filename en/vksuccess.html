@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
+</head>
+<body>
+    <style>
+        img {
+            /* Width must be set to the viewport width */
+            width: 100%;
+            height: 50%;
+        }
+        p {
+            width: auto;
+            height: auto;
+            font-size: medium;
+            font-family: 'Segoe UI';
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Segoe UI';
+            font-size: x-large;
+            text-align: center;
+        }
+        input {
+            align-self: center;
+            font-family: 'Segoe UI';
+            font-size: large;
+            text-align: center;
+            width: 100%;
+            height: auto;
+        }
+        button {
+            align-self: center;
+            font-family: 'Segoe UI';
+            font-size: large;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+    <img src="images/logo.png" alt="logo" class="logo">
+    <h1>Successfully authorized!</h1>
+    <p>Copy this token and send it to the bot.</p>
+    <input type="text" id="token">
+    <button id="copy">Copy</button>
+    <script>
+        var hash = window.location.hash.split('=')[1];
+        var token = hash.split('&')[0];
+        $('#token').val(token);
+        $('#copy').click(function() {
+            $('#token').select();
+            document.execCommand('copy');
+        });
+    </script>
+</body>
