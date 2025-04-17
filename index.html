@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <script src="https://js.sentry-cdn.com/7be01c50ae886a16ac528c811b394ca2.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="src/i18nextBrowserLanguageDetector.min.js"></script>
+    <script>
+        Sentry.onLoad(function () {
+            Sentry.init({
+                tracesSampleRate: 1.0
+            });
+        });
+
+        i18next.use(window.i18nextBrowserLanguageDetector).init({
+            debug: true,
+            resources: {
+                en: {
+                    translation: {
+                        "welcome": "Welcome!",
+                        "prompt1": "If you see this page, that means the bot is installed correctly!",
+                        "prompt2": "You can edit this page at any time by typing /settings.",
+                        "logo": "images/logo_en.png"
+                    }
+                },
+                ru: {
+                    translation: {
+                        "welcome": "Добро пожаловать!",
+                        "prompt1": "Если вы видите это сообщение, бот установлен корректно!",
+                        "prompt2": "Вы можете в любое время изменить эту страницу с помощью команды /settings.",
+                        "logo": "images/logo_ru.png"
+                    }
+                }
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('logo').src = i18next.t('logo');
+            document.getElementById('welcome').innerHTML = i18next.t('welcome');
+            document.getElementById('prompt1').innerHTML = i18next.t('prompt1');
+            document.getElementById('prompt2').innerHTML = i18next.t('prompt2');
+        })
+    </script>
+</head>
+<body>
+    <style>
+        img {
+            /* Width must be set to the viewport width */
+            width: 100%;
+            height: 50%;
+        }
+
+        p {
+            width: auto;
+            height: auto;
+            font-size: medium;
+            font-family: 'Segoe UI';
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Segoe UI';
+            font-size: x-large;
+            text-align: center;
+        }
+
+        button {
+            align-self: center;
+            font-family: 'Segoe UI';
+            font-size: large;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+    <img id="logo">
+    <h1 id="welcome"></h1>
+    <p id="prompt1"></p>
+    <p id="prompt2"></p>
+</body>
